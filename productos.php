@@ -7,7 +7,7 @@
     if($filtro == "inicial"){
         $sql = "SELECT * FROM productos limit 50";
     }else{
-        $sql = "SELECT * FROM productos WHERE descripcion LIKE '%$filtro%'";
+        $sql = "SELECT * FROM productos WHERE descripcion LIKE '%$filtro%' and existencia > 0";
     }
    
     $result = $conn->query($sql);

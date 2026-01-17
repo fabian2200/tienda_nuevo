@@ -7,7 +7,9 @@
     $celular = $_POST["celular"];
     $total_pagar = $_POST["total_pagar"];
     $metodo_pago = $_POST["metodo_pago"];
+    $vueltos_domi = $_POST["vueltos_domi"];
     $carrito = json_decode($_POST["carrito"], true);
+    $precio_domi = $_POST["precio_domi"];
 
     if($registrado == 0){
         $sql = "INSERT INTO clientes (nombre, celular, direccion) VALUES ('$nombre','$celular','$direccion')";
@@ -24,7 +26,7 @@
     $fecha = date('d/m/Y');
     $id_cliente = $cliente["id"];
 
-    $sql = "INSERT INTO `domicilios`(`id_cliente`, `total_pagar`, `fecha_domi`, `metodo_pago`) VALUES ('$id_cliente','$total_pagar','$fecha', '$metodo_pago')";
+    $sql = "INSERT INTO `domicilios`(`id_cliente`, `total_pagar`, `fecha_domi`, `metodo_pago`, `vueltos_domi`, `precio_domi`) VALUES ('$id_cliente','$total_pagar','$fecha', '$metodo_pago', '$vueltos_domi', $precio_domi)";
     $conn->query($sql);
 
     
