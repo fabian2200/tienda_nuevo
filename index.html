@@ -636,6 +636,33 @@
         }
 
         verificarCarritoItems();
+
+        function establecerHorario() {
+            const fechaColombia = new Date(
+                new Date().toLocaleString("en-US", { timeZone: "America/Bogota" })
+            );
+
+            const hora = fechaColombia.getHours(); // 0 a 23
+
+            // fuera de horario
+            if (hora >= 21 || hora < 6) {
+                Swal.fire({
+                    position: 'center',
+                    title: '¡No se aceptan pedidos fuera de horario!',
+                    html: 'El horario de atención es de <br> <strong style="color: red;">6:00 a.m. - 9:00 p.m.</strong>',
+                    icon: 'warning',
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                });
+                return false;
+            }
+
+            return true;
+        }
+
+
+        establecerHorario();
     </script>
 
 </body>

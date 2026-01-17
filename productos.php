@@ -2,13 +2,22 @@
 
     include_once("conexion.php");
 
-    $filtro = $_GET['filtro'];
+    $conn->set_charset("utf8mb4");
 
-    if($filtro == "inicial"){
-        $sql = "SELECT * FROM productos limit 50";
-    }else{
-        $sql = "SELECT * FROM productos WHERE descripcion LIKE '%$filtro%' and existencia > 0";
+    $filtro = trim($_GET['filtro']);
+
+    if ($filtro == "inicial") {
+        $sql = "SELECT * FROM productos LIMIT 50";
+    } else {
+        $filtro = $conn->real_escape_string($filtro);
+        $sql = "
+            SELECT * 
+            FROM productos 
+            WHERE LOWER(descripcion) LIKE '%" . strtolower($filtro) . "%'
+            AND existencia > 0
+        ";
     }
+
    
     $result = $conn->query($sql);
     $productos = array();

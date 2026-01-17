@@ -192,7 +192,7 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="text-right">
-                                                                        <span>$500</span>
+                                                                        <span id="precio_domi_span"></span>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -300,7 +300,7 @@
             var total = 0;
             item.productos.forEach(element => {
                 
-               var cantidad = Math.round(parseFloat(element.cantidad));
+               var cantidad = parseFloat(element.cantidad);
                 div += '<tr style="border-top: 1px solid grey;">'+
                             '<td width="60%">'+
                                 '<span class="font-weight-bold">'+element.descripcion+'</span>'+
@@ -312,23 +312,28 @@
                             '</td>'+
                             '<td width="20%">'+
                                 '<div class="text-right">'+
-                                    '<span class="font-weight-bold">$'+(element.cantidad * element.precio)+'</span>'+
+                                    '<span class="font-weight-bold">$'+redondear((element.cantidad * element.precio))+'</span>'+
                                 '</div>'+
                             '</td>'+
                         '</tr>';
 
-                total += parseFloat(element.cantidad) * parseFloat(element.precio);
+                total += redondear(element.cantidad * element.precio);
             });
 
             
             var totalFormateado = total.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });
             document.getElementById("subtotal_span").innerText = totalFormateado;
 
-            var total_total = total + 500;
+            var total_total = parseFloat(total) + parseFloat(item.precio_domi);
             var total_totalFormateado = total_total.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });
             document.getElementById("total_span").innerText = total_totalFormateado;
-
+            document.getElementById("precio_domi_span").innerText = item.precio_domi.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });
             document.getElementById("body_detalles").innerHTML = div;
+        }
+
+        function redondear(numero){
+            var redondeado = Math.round(numero / 100) * 100;
+            return redondeado;
         }
 
         function verificar_eliminar(index){

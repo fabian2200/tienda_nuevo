@@ -2,7 +2,9 @@
 
     include_once("conexion.php");
 
-    $celular = $_GET["celular"];
+    $conn->set_charset("utf8mb4");
+
+    $celular = trim($_GET["celular"]);
 
     $sql = "SELECT * FROM clientes where celular = ".$celular;
     $result = $conn->query($sql);

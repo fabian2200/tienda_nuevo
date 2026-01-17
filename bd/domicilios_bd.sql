@@ -1,23 +1,3 @@
-/*
-SQLyog Community v13.3.0 (64 bit)
-MySQL - 8.0.41 : Database - domicilios_bd
-*********************************************************************
-*/
-
-/*!40101 SET NAMES utf8 */;
-
-/*!40101 SET SQL_MODE=''*/;
-
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`domicilios_bd` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-
-USE `domicilios_bd`;
-
-/*Data for the table `clientes` */
-
 insert  into `clientes`(`id`,`nombre`,`celular`,`direccion`) values 
 (23,'José','3023372197','Manzana h casa 34'),
 (24,'Fabian Mendez','345345','Carrera 19B1 #9C - 92'),
@@ -1955,8 +1935,3 @@ insert  into `productos_vendidos`(`id`,`id_domicilio`,`descripcion`,`codigo_barr
 (185,'96','QUESO','1',33000.00,0.303,'Kilos'),
 (186,'96','CHEETOS BOLI QUESO DE160G','7702189045577',8000.00,1.000,'Unidades'),
 (187,'96','PECHUGA','9',16500.00,0.303,'Kilos');
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
