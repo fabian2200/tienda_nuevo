@@ -476,15 +476,15 @@
                 total += producto.cantidad * parseFloat(producto.precio_venta);
                 //redondear al 100 o al 1000 mas cercano
                 total = Math.round(total / 100) * 100;
-              
-                var totalFormateado = total.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });
-                document.getElementById("total_pagar").innerText = totalFormateado;
-
-                total_pagar_domi = total + precio_domi;
-                var totalFormateado2 = total_pagar_domi.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });
-                document.getElementById("total_pagar_total").innerText = totalFormateado2;
-
             });
+
+            var totalFormateado = total.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });
+            document.getElementById("total_pagar").innerText = totalFormateado;
+
+            total_pagar_domi = total + precio_domi;
+            var totalFormateado2 = total_pagar_domi.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });
+            document.getElementById("total_pagar_total").innerText = totalFormateado2;
+
             document.getElementById("precio_domi").innerText = precio_domi.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });
             listaCarrito.innerHTML = html;
         }
